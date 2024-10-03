@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Haechan Jung
+- **Dot Number**: jung.801
+- **Due Date**: 09/13 4:10 PM EST
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +27,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +60,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -98,23 +90,21 @@ do good work.
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+- Watching movies
+- Reading books
+- To-do listing
+- Listening to music
+- Spending diary
+- Document classification
+- Daily routine
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -192,70 +182,84 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: `Drawing Lots`
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this components is to model a drawing lot system. Kernerl consists of methods to generate a simple lottery set, and secondary consists of methods modifying options and execution.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void addName(String name)`: add `name` player in `this`
+    - `void addItem(String item)`: add `item` result in `this`
+    - `String removeName(String name)`: remove `name` from `this` and return `name`
+    - `String removeItem(String item)`: remove `item` from `this` and return `item`
+    - `int size()`: reports numbers of players in `this`
+    - `int isNameOrItem()`: return 0 if it is a `name` value, 1 if it is a `item`, -1 otherwise.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `int index(String name)`: generate a random unique number for a `name` in `this`(hashcode?)
+    - `String value(index)`: return corresponding `item` of `index` in `this`; aliasing
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, removeItem and other methods will change `this`
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, one is to store player names, and the other is for items(lottery results)
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - seems unnecessary at this moment
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - removeItem method will be used in value method to match the same item with the input.
 
-
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: TO-DO Maker
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this component is to model a to-do list system. Kernel consists of primary methods; addition and deletion of to-do, counting numbers of categories and to-dos, etc. Secondary consists of methods for optional functions
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void add(String category, String todo)`: add `todo` in `this` under `category`
+    - `String remove(String category, String todo)`: remove `todo` under `category` from this
+    - `int categCount()`: return numbers of categories in `this`
+    - `int todoCount("String category")`: return numbers of todos under `category`
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `boolean hasCateg(String category)`: return true if `this` has `category`
+    - `boolean hasTodo(String category, String todo)`: return true if `this` has `category`
+    - `int hashcode(String category, String todo)`: return hashcode of `todo` under `category`
+    - `String replaceTodo(String category, String todo)`: replace with new `todo`; return the old value
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it is necessary to be mutable since values of todo or category will be changed
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, two different classes for category and todo
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - hasCateg, hasTodo, replaceTodo will use add and remove methods to find the value matching with the input value
 
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Weather Forecaster
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this component is to track the weather condition. Kernel consists of primary methods; add, remove, checking condition, and formatting date. Secondary consists of methods related to setting
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void add(String date, String weather)`: add `date` and `weather` in `this`
+    - `void remove(String date, String weather)`: remove `date` and `weather` from `this`
+    - `void condition(String date)`: return the weather condition of `date`
+    - `String date_format(LocalDateTime date, String date_format)`: return String value of date formatted with `date_format` (e.g."YYYY-MM-DD")
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `int hashcode(String date)`: return hashcode of `date`
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Immutable since `weather` of `date` would never change.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - i don't know
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - week = 7 days
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I don't know
 
 ## Post-Assignment
 
@@ -282,13 +286,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
-## YYYY.MM.DD
+## 2024.09.16
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a `Drawing Lots` component
+- Designed a `TO-DO Maker` component
+- Designed a `Weather Forecaster` component
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
