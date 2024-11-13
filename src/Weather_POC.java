@@ -9,7 +9,7 @@ import components.utilities.FormatChecker;
  * @author Haechan Jung
  *
  */
-public class Weather<date, condition> {
+public class Weather_POC<date, condition> {
     // 1. extend Pair<K,V> - refer to SimplePair<K, V> -- abstract class
 
     /*
@@ -35,7 +35,7 @@ public class Weather<date, condition> {
     /**
      * No-argument constructor.
      */
-    public Weather() {
+    public Weather_POC() {
         this.createNewRep();
     }
 
@@ -47,7 +47,7 @@ public class Weather<date, condition> {
      * @param condition
      *            {@code condition} to initialize from
      */
-    public Weather(String date, String condition) {
+    public Weather_POC(String date, String condition) {
         this.createNewRep();
         this.addWeather(date, condition);
     }
@@ -75,12 +75,12 @@ public class Weather<date, condition> {
         this.weather.add(date, condition);
     }
 
-    public final Weather<date, condition> removeWeather(String date) {
+    public final Weather_POC<date, condition> removeWeather(String date) {
         assert date != null : "Violation of: date is not null";
         assert this.isDateFormatted(date) : "Violation of: date is formatted";
         assert this.hasDate(date) : "Violation of: date is in this";
         Map.Pair<String, String> pair = this.weather.remove(date);
-        return new Weather<>(pair.key(), pair.value());
+        return new Weather_POC<>(pair.key(), pair.value());
     }
 
     public final boolean hasDate(String date) {
@@ -152,12 +152,12 @@ public class Weather<date, condition> {
                 "1988-08-18", "2222-04-30", "2024-10-01" };
         String[] condition = { "Sunny", "Rainy", "Cloudy", "Rainy", "Stormy",
                 "Windy" };
-        Weather<String, String> test = new Weather<>();
+        Weather_POC<String, String> test = new Weather_POC<>();
         for (int i = 0; i < date.length; i++) {
             test.addWeather(date[i], condition[i]);
         }
         for (int j = 0; j < date.length; j++) {
-            Weather<String, String> pair = test.removeWeather(date[j]);
+            Weather_POC<String, String> pair = test.removeWeather(date[j]);
             out.println("1. If this has the date: " + pair.hasDate(date[j]));
             out.println("2. If the date is formmated as \"YYYY-MM-DD\": "
                     + pair.isDateFormatted(date[j]));
