@@ -6,6 +6,64 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## 2024.11.13
+
+### Updated
+
+- Modified a few secondary methods
+
+## 2024.11.11
+
+### Added
+
+- Designed kernel implementation for Weather component
+
+### Updated
+
+- Completed abstract class for Weather component
+
+## 2024.11.11
+
+### Added
+
+- Designed enhanced interface for Weather component
+- Created a rough abstract class for Weather component
+
+### Updated
+
+- Completed the kernel interface for Weather component
+- Changed the name of Weather.java file to Weather_POC.java
+
+## 2024.11.08
+
+### Updated
+
+- Modified the kernel interface for Weather component
+
+## 2024.11.01
+
+### Added
+
+- Created a rough kernel interface for Weather component
+
+## 2024.10.03
+
+### Added
+
+- Designed a proof of concept for `Weather Forecaster` component
+
+### Updated
+
+- Changed `Weather Forecaster` design to include `hasDate` and `isDateFormatted` in kernel
+
+## 2024.09.16
+
+### Added
+
+- Designed a `Drawing Lots` component
+- Designed a `TO-DO Maker` component
+- Designed a `Weather Forecaster` component
+
 ## [Unreleased]
 
 ## [2024.08.07]
@@ -71,20 +129,7 @@ the following form: YYYY.0M.0D.
 [2024.08.07]: https://github.com/jrg94/portfolio-project/compare/v2024.01.07...v2024.08.07
 [2024.01.07]: https://github.com/jrg94/portfolio-project/releases/tag/v2024.01.07
 
-## 2024.09.16
 
-### Added
 
-- Designed a `Drawing Lots` component
-- Designed a `TO-DO Maker` component
-- Designed a `Weather Forecaster` component
 
-## 2024.10.03
 
-### Added
-
-- Designed a proof of concept for `Weather Forecaster` component
-
-### Updated
-
-- Changed `Weather Forecaster` design to include `hasDate` and `isDateFormatted` in kernel
