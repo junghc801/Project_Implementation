@@ -3,7 +3,7 @@ package components.weather;
 import java.util.Date;
 
 /**
- * Implementations of {@code Weather} primary methods
+ * Implementations of {@code Weather} primary methods.
  *
  * @convention <pre>
  * [$this.time is time of the record] and
@@ -198,5 +198,4 @@ public class Weather1 extends WeatherSecondary {
     public float highTemp() {
         return this.high;
     }
-
 }

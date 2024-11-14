@@ -16,7 +16,7 @@ public abstract class WeatherSecondary implements Weather {
      */
 
     /**
-     * Implementation of Chart
+     * Implementation of Chart.
      */
     public abstract class Chart1 implements Chart {
         /*
@@ -24,7 +24,7 @@ public abstract class WeatherSecondary implements Weather {
          */
 
         /**
-         * a set of {@code Weather};
+         * a set of {@code Weather}.
          */
         private Set<Weather> chart;
 
@@ -124,13 +124,8 @@ public abstract class WeatherSecondary implements Weather {
         @Override
         public void add(Weather w) {
             assert w != null : "Violation of: w is not null";
-            boolean hasTime = false;
-            for (Weather x : this.chart) {
-                if (x.equals(w)) {
-                    hasTime = true;
-                }
-            }
-            assert !hasTime : "Violation of w.time is not in DOMAIN(this)";
+            assert !this.hasTime(
+                    w.time()) : "Violation of w.time is not in DOMAIN(this)";
 
             this.chart.add(w);
         }
@@ -153,13 +148,7 @@ public abstract class WeatherSecondary implements Weather {
         @Override
         public Weather remove(Date t) {
             assert t != null : "Violation of: t is not null";
-            boolean hasTime = false;
-            for (Weather w : this.chart) {
-                if (w.time().equals(t)) {
-                    hasTime = true;
-                }
-            }
-            assert hasTime : "Violation of t is in DOMAIN(this)";
+            assert this.hasTime(t) : "Violation of t is in DOMAIN(this)";
 
             Set<Weather> copy = this.chart.newInstance();
             copy.transferFrom(this.chart);
@@ -207,13 +196,7 @@ public abstract class WeatherSecondary implements Weather {
         @Override
         public Condition condition(Date t) {
             assert t != null : "Violation of: t is not null";
-            boolean hasTime = false;
-            for (Weather w : this.chart) {
-                if (w.time().equals(t)) {
-                    hasTime = true;
-                }
-            }
-            assert hasTime : "Violation of t is in DOMAIN(this)";
+            assert this.hasTime(t) : "Violation of t is in DOMAIN(this)";
 
             Condition result = Condition.UNDEFINED;
             for (Weather w : this.chart) {
@@ -276,6 +259,11 @@ public abstract class WeatherSecondary implements Weather {
             }
             return s;
         }
+
+        @Override
+        public Iterator<Weather> iterator() {
+            return this.chart.iterator();
+        }
     }
 
     /*
@@ -304,6 +292,14 @@ public abstract class WeatherSecondary implements Weather {
         if (!this.condition().equals(w.condition())) {
             return false;
         }
+        final float epsilon = 0.00001f;
+        if (Math.abs(this.lowTemp() - w.lowTemp()) > epsilon) {
+            return false;
+        }
+        if (Math.abs(this.highTemp() - w.highTemp()) > epsilon) {
+            return false;
+        }
+
         return true;
     }
 
